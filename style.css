@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #f8f9fa;
+    --text-color: #333;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.8;
+    color: var(--text-color);
+    background-color: #fdfdfd;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    padding: 2rem 3rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+h2, h3, h4 {
+    font-weight: 500;
+    color: #333;
+}
+
+h2 {
+    font-size: 1.6rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+}
+
+h4 {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 3rem 0;
+}
+
+ul, ol {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 0.8rem;
+}
+
+strong {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+blockquote {
+    border-left: 4px solid var(--primary-color);
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    background-color: var(--secondary-color);
+    font-style: italic;
+    font-size: 1.05rem;
+}
+
+.controls {
+    text-align: right;
+    margin-bottom: 1rem;
+}
+
+.controls button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    transition: background-color 0.2s;
+    margin-left: 10px;
+}
+
+.controls button:hover {
+    background: #0056b3;
+}
+
+.lesson-part {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.lesson-part summary {
+    padding: 1rem 1.5rem;
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.lesson-part summary:hover {
+    background-color: #e9ecef;
+}
+
+.lesson-part summary h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.lesson-part summary::after {
+    content: '▼';
+    font-size: 1rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.lesson-part[open] > summary::after {
+    transform: rotate(180deg);
+}
+
+.lesson-part .content {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1.0), padding 0.5s cubic-bezier(0.25, 0.1, 0.25, 1.0);
+}
+
+.lesson-part[open] > .content {
+    padding-top: 1.5rem;
+    max-height: 2000px; /* 충분히 큰 값으로 설정 */
+}
